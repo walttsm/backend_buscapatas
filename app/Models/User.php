@@ -18,8 +18,14 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'age',
         'email',
         'password',
+        'telephone',
+        'number_of_animals',
+        'rescued_animals',
+        'points',
+        'photo_url'
     ];
 
     /**
@@ -40,4 +46,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Get the user's animals
+     */
+    public function animals() {
+        return $this->hasMany(Animal::class);
+    }
 }
