@@ -14,6 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/users', function () {
+    return 'API usuários';
+});
+
+
+
+Route::get('/animals', function () {
+    return 'API animais';
+});
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
