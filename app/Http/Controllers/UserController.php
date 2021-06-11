@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Animal;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class AnimalController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,18 +14,18 @@ class AnimalController extends Controller
      */
     public function index()
     {
-        return Animal::all();
+        return User::all();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Animal  $animal
+     * @param  \App\Models\User $user
      * @return \Illuminate\Http\Response
      */
-    public function show(Animal $animal)
+    public function show(User $user)
     {
-        return $animal;
+        return $user;
     }
 
     /**
@@ -36,34 +36,34 @@ class AnimalController extends Controller
      */
     public function store(Request $request)
     {
-        $animal = Animal::create($request->all());
+        $user = User::create($request->all());
 
-        return response()->json($animal, 201);
+        return response()->json($user, 201);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Animal  $animal
+     * @param  \App\Models\User $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Animal $animal)
+    public function update(Request $request, User $user)
     {
-        $animal->update($request->all());
+        $user->update($request->all());
 
-        return response()->json($animal, 200);
+        return response()->json($user, 200);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Animal  $animal
+     * @param  \App\Models\User $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Animal $animal)
+    public function destroy(User $user)
     {
-        $animal->delete();
+        $user->delete();
 
         return response()->json(null, 204);
     }
