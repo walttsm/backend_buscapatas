@@ -18,5 +18,13 @@ class Animal extends Model
         'size',
         'sex',
         'details',
-    ]
+        'last_latitude',
+        'last_longitude',
+        'status',
+        'owner_id',
+    ];
+
+    public function owner() {
+        return $this->belongsTo(User::class);
+    }
 }
