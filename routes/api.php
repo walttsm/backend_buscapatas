@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AnimalController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,27 +20,15 @@ use App\Http\Controllers\AnimalController;
 */
 
 // Rotas de usuários
-Route::get('/users', [UserController::class, 'index']);
-
-Route::get('/users/{user}', [UserController::class, 'show']);
-
-Route::post('/users', [UserController::class, 'store']);
-
-Route::put('/users/{user}', [UserController::class, 'update']);
-
-Route::delete('/users/{user}', [UserController::class, 'destroy']);
+Route::resource('/users', UserController::class);
 
 // Rotas para os animais
-Route::get('/animals', [AnimalController::class, 'index']);
+Route::resource('/animals', AnimalController::class);
 
-Route::get('/animals/{animal}', [AnimalController::class, 'show']);
+Route::post('/register', [RegisterController::class, 'register']);
 
-Route::post('/animals', [AnimalController::class, 'store']);
+Route::post('/login', [LoginController::class, 'login']);
 
-Route::put('/animals/{animal}', [AnimalController::class, 'update']);
-
-Route::delete('/animals/{animal}', [AnimalController::class, 'destroy']);
-
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
