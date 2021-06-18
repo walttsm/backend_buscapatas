@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
             $number_of_animals = $user->number_of_animals;
             for ($j = 0; $j < $number_of_animals; $j++) {
                 Animal::factory(1)->createOne([
-                    'owner_id' => $i,
+                    'user_id' => $i,
                 ]);
             }
 

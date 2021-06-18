@@ -25,6 +25,7 @@ class AnimalController extends Controller
      */
     public function show(Animal $animal)
     {
+        $animal->load('owner');
         return $animal;
     }
 

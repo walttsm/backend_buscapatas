@@ -26,7 +26,7 @@ class CreateAnimalsTable extends Migration
             $table->string('status')->default('Found');
             $table->string('last_latitude')->nullable();
             $table->string('last_longitude')->nullable();
-            $table->integer('owner_id')->unsigned();
+            $table->integer('user_id')->unsigned();
             $table->timestamps();
         });
     }
